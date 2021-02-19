@@ -26,6 +26,6 @@ Project for learning React & React Router.
 - [x] Side Bar flex-direction: column to row for small screen.
 
 ## Push to Github Repository & Page Create
-- [ ] Github Repository
-- [ ] npm i gh-pages
-- [ ] modify package.json:homepage, build, prebuild...
+- [x] Github Repository
+- [x] npm i gh-pages
+- [x] modify package.json:homepage, deploy, predeploy...
