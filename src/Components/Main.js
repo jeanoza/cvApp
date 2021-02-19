@@ -45,8 +45,7 @@ const Icons = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 0px 15px;
-  padding-top: 10px;
+  padding: 10px 15px;
 `;
 const LeftIcon = styled.div`
   width: 120px;
@@ -105,20 +104,22 @@ export const Main = ({
         <FontAwesomeIcon icon={faBookmark} size="2x" />
       </RightIcon>
     </Icons>
-    <CommentList>
-      <Comment>
-        <CommentTitle>{author}</CommentTitle>
-        <CommentSub>{comment1}</CommentSub>
-      </Comment>
-      <Comment>
-        <CommentTitle>{author}</CommentTitle>
-        <CommentSub>{comment2}</CommentSub>
-      </Comment>
-      <Comment>
-        <CommentTitle>{author}</CommentTitle>
-        <CommentSub>{comment3}</CommentSub>
-      </Comment>
-    </CommentList>
+    {author && (
+      <CommentList>
+        <Comment>
+          <CommentTitle>{author}</CommentTitle>
+          <CommentSub>{comment1}</CommentSub>
+        </Comment>
+        <Comment>
+          <CommentTitle>{author}</CommentTitle>
+          <CommentSub>{comment2}</CommentSub>
+        </Comment>
+        <Comment>
+          <CommentTitle>{author}</CommentTitle>
+          <CommentSub>{comment3}</CommentSub>
+        </Comment>
+      </CommentList>
+    )}
   </Container>
 );
 

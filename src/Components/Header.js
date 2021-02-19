@@ -9,7 +9,7 @@ import {
 import { faJsSquare } from "@fortawesome/free-brands-svg-icons";
 
 const Header = styled.div`
-  z-index: 10;
+  z-index: 12;
   background-color: rgb(255, 255, 255);
   position: fixed;
   display: flex;
