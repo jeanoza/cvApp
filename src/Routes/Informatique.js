@@ -26,9 +26,9 @@ const Informatique = () => {
     <Container>
       <MainInformatique
         backdropUrl="https://user-images.githubusercontent.com/64304902/108257957-cc65fd80-715f-11eb-852b-b3b4ebeb930a.png"
-        text1=" React # React Hook # Axios #"
-        text2=" JavaScript # ES6 # Arrow Function #"
-        text3=" async() # wait # .map() # .filter() #"
+        text1=" React # Hook # Axios #"
+        text2=" JavaScript # ES6 # ArrowFunction #"
+        text3=" async() # await # .map() # .filter() #"
         text4=" API # Github #"
         comment1="Go to Page "
         comment2="Source Code "
