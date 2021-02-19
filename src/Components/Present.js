@@ -11,8 +11,8 @@ const Present = styled.div`
   width: 22%;
   background-color: rgb(250, 250, 250);
   @media (max-width: 1024px) {
-    width: 100%;
-    padding: 0px 10%;
+    width: 80%;
+    padding-right: 10%;
     flex-direction: row;
     justify-content: space-between;
     left: 0;
@@ -63,7 +63,11 @@ export default () => (
         title="Full-Stack"
         sub="NodeJS, Java Spring Boot, MySQL"
       />
-      <GoToWeb href="https://jeanoza.github.io/cvApp/" target="_blank">
+      <GoToWeb
+        href="https://jeanoza.github.io/cvApp/"
+        target="_blank"
+        rel="noreferrer"
+      >
         Pour consulter ce CV en ligne : Click ici
       </GoToWeb>
     </Section>
@@ -86,7 +90,7 @@ export default () => (
           sub="choikb916@gmail.com"
         />
       </a>
-      <a href="https://github.com/jeanoza/" target="_blank">
+      <a href="https://github.com/jeanoza/" target="_blank" rel="noreferrer">
         <ImageSmall
           imageUrl="https://pngimg.com/uploads/github/github_PNG40.png"
           title="GitHub"
