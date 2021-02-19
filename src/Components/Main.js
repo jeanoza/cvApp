@@ -14,7 +14,9 @@ const Container = styled.div`
   margin-top: 30px;
   width: 62%;
   @media (max-width: 1024px) {
-    width: 100%;
+    width: 80%;
+    margin: 30px 10%;
+    margin-top: 30px;
   }
 `;
 const Backdrop = styled.div`

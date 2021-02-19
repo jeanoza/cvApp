@@ -23,7 +23,9 @@ const Section = styled.div`
   border: 1px solid rgb(20, 20, 20, 0.1);
   background-color: rgb(255, 255, 255);
   @media (max-width: 1024px) {
-    width: 100%;
+    width: 80%;
+    margin: 0px 10%;
+    margin-top: 30px;
   }
 `;
 const SectionTitle = styled.h1`
