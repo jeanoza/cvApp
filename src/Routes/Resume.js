@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ImageMain } from "Components/Image";
+import { useEffect } from "react";
 
 const Container = styled.div`
   position: absolute;
@@ -46,6 +47,9 @@ const Item = styled.li`
 `;
 
 const Resume = () => {
+  useEffect(() => {
+    document.title = "Home | CV App";
+  }, []);
   return (
     <Container>
       <Section>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Main, MainInformatique } from "Components/Main";
+import { MainInformatique } from "Components/Main";
 import { ImageMain } from "Components/Image";
+import { useEffect } from "react";
 
 const Container = styled.div`
   position: absolute;
@@ -18,6 +19,9 @@ const Container = styled.div`
   }
 `;
 const Informatique = () => {
+  useEffect(() => {
+    document.title = "Informatique | CV App";
+  }, []);
   return (
     <Container>
       <MainInformatique

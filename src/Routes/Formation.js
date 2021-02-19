@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Main } from "Components/Main";
 import { ImageMain } from "Components/Image";
+import { useEffect } from "react";
 
 const Container = styled.div`
   position: absolute;
@@ -18,6 +19,10 @@ const Container = styled.div`
   }
 `;
 const Formation = () => {
+  useEffect(() => {
+    document.title = "Formation | CV App";
+  }, []);
+
   return (
     <Container>
       <Main

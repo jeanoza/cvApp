@@ -139,15 +139,17 @@ export const MainInformatique = ({
 }) => (
   <Container>
     {children}
-    <Backdrop bgImage={backdropUrl}>
-      <Text>
-        {year}
-        {text1}
-        {text2}
-        {text3}
-        {text4}
-      </Text>
-    </Backdrop>
+    <a href={link1} target="_blank">
+      <Backdrop bgImage={backdropUrl}>
+        <Text>
+          {year}
+          {text1}
+          {text2}
+          {text3}
+          {text4}
+        </Text>
+      </Backdrop>
+    </a>
     <Icons>
       <LeftIcon>
         <FontAwesomeIcon icon={faHeart} size="2x" />
