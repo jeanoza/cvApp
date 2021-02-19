@@ -72,7 +72,9 @@ const Item = styled.li`
 
 export default withRouter(({ location: { pathname } }) => (
   <Header>
-    <Title>𝕮𝖚𝖗𝖗𝖎𝖈𝖚𝖑𝖚𝖒 𝖁𝖎𝖙𝖆𝖊</Title>
+    <Link to="/">
+      <Title>𝕮𝖚𝖗𝖗𝖎𝖈𝖚𝖑𝖚𝖒 𝖁𝖎𝖙𝖆𝖊</Title>
+    </Link>
     <Form>
       <Input placeholder="Rechercher" />
     </Form>
