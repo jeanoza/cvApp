@@ -32,6 +32,14 @@ const Section = styled.div`
     justify-content: flex-start;
   }
 `;
+const GoToWeb = styled.a`
+  display: none;
+  font-weight: 600;
+  color: #0984e3;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
 
 export default () => (
   <Present>
@@ -52,6 +60,9 @@ export default () => (
         title="Full-Stack"
         sub="NodeJS, Java Spring Boot, MySQL"
       />
+      <GoToWeb href="https://jeanoza.github.io/cvApp/" target="_blank">
+        Pour consulter ce CV en ligne : Click ici
+      </GoToWeb>
     </Section>
     <Section>
       <SpanBig>Contact</SpanBig>

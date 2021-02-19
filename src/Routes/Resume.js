@@ -51,7 +51,7 @@ const Resume = () => {
       <Section>
         <SectionTitle>EXPERIENCES PROFESSIONNELLES</SectionTitle>
         <ImageMain
-          imageUrl="https://lh3.googleusercontent.com/proxy/ExFtGR9Ok0INFoOhs4IA4NBheG3rUXiBYzLe3F4AujDFs46E1RBdVlCq4euZ8ps7xGPFoSqhhoyPPyCwkBj55EEboaEBfb3nAIuy7zOLZPB-bCk5Fa2IRwqHK3goNdNbuGOMbMCqPWVpNNYv1OXM1k-h9VeKE4XDVAv3I4xlqqvnr9DnEIumvbSS8Ea1sjKfWhqZ37TMD3cYemOHck4SPsI6hDSX"
+          imageUrl="https://img.khan.co.kr/news/2020/04/06/l_2020040601000690900052931.jpg"
           title="Armée de Terre de la Corée du Sud"
           sub="Chef du département de service de sécurité informatique (2014 ~ 2016)"
         />
