@@ -11,8 +11,9 @@ const Container = styled.div`
 const ContainerSmall = styled.div`
   display: flex;
   width: 100%;
-  min-width: 300px;
+  min-width: 270px;
   padding-bottom: 15px;
+  padding-right: 30px;
 `;
 
 const ContainerMain = styled.div`

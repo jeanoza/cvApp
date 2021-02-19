@@ -12,6 +12,7 @@ const Present = styled.div`
   @media (max-width: 1024px) {
     width: 100vw;
     flex-direction: row;
+    justify-content: space-between;
     position: absolute;
     left: 0;
     right: 0;
@@ -20,6 +21,7 @@ const Present = styled.div`
 
 const SpanBig = styled.span`
   width: 100%;
+  min-width: 300px;
   font-weight: 600;
   opacity: 0.7;
   margin: 20px 0px;
