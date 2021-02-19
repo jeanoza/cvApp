@@ -67,7 +67,7 @@ const Resume = () => {
           sub="Barista (sept. 2019 ~)"
         />
         <ImageMain
-          imageUrl="http://assets.stickpng.com/images/5842996fa6515b1e0ad75add.png"
+          imageUrl="https://img2.freepng.fr/20180925/hjq/kisspng-burger-king-gmbh-munchen-logo-hamburger-brand-burger-king-logo-png-transparent-svg-vector-fr-5baad09e5c5625.4805092915379211823782.jpg"
           title="Burger King France"
           sub="Equipier Polyvalent (mars ~ sept. 2019)"
         />
