@@ -11,10 +11,12 @@ const Present = styled.div`
   width: 22%;
   background-color: rgb(250, 250, 250);
   @media (max-width: 1024px) {
-    width: 80%;
-    padding-right: 10%;
+    width: 100%;
+    padding: 30px 5%;
+    padding-bottom: 0px;
     flex-direction: row;
     justify-content: space-between;
+    top: 50px;
     left: 0;
     right: 0;
   }
