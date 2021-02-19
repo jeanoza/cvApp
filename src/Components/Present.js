@@ -1,17 +1,25 @@
 import styled from "styled-components";
-import Image from "Components/Image";
-import ImageSmall from "Components/ImageSmall";
+import { Image, ImageSmall } from "Components/Image";
 
 const Present = styled.div`
   display: flex;
   flex-direction: column;
+  z-index: 11;
   position: fixed;
   top: 80px;
   right: 18%;
   width: 22%;
+  @media (max-width: 1024px) {
+    width: 100vw;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
 `;
 
 const SpanBig = styled.span`
+  width: 100%;
   font-weight: 600;
   opacity: 0.7;
   margin: 20px 0px;
@@ -20,6 +28,9 @@ const Section = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1024px) {
+    justify-content: flex-start;
+  }
 `;
 
 export default () => (
@@ -30,7 +41,7 @@ export default () => (
       sub="Sud-Coréen, né 16 septembre 1991"
     />
     <Section>
-      <SpanBig>Recherche d’un contrat d’apprentissage...</SpanBig>
+      <SpanBig>Recherche d’un contrat d’apprentissage</SpanBig>
       <ImageSmall
         imageUrl="https://cdn.auth0.com/blog/react-js/react.png"
         title="Front-End"

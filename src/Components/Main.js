@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ImageMain from "Components/ImageMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
@@ -7,12 +6,16 @@ import {
   faPaperPlane,
   faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 
-const Main = styled.div`
+const Container = styled.div`
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(20, 20, 20, 0.1);
   margin-top: 30px;
-  margin-right: 10px;
+  width: 62%;
+  @media (max-width: 1024px) {
+    width: 98vw;
+  }
 `;
 const Backdrop = styled.div`
   background-image: url(${(props) => props.bgImage});
@@ -21,7 +24,7 @@ const Backdrop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 600px;
+  width: 100%;
   height: 400px;
   color: rgb(255, 255, 255);
   opacity: 0.7;
@@ -42,7 +45,8 @@ const Icons = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 0px 15px;
+  padding-top: 10px;
 `;
 const LeftIcon = styled.div`
   width: 120px;
@@ -52,20 +56,44 @@ const LeftIcon = styled.div`
 `;
 const RightIcon = styled.div``;
 
-export default ({
-  imageUrl,
-  title,
-  sub,
+const CommentList = styled.ul`
+  margin: 10px 15px;
+`;
+const Comment = styled.li`
+  margin-bottom: 5px;
+`;
+const CommentTitle = styled.span`
+  font-weight: 600;
+  margin-right: 10px;
+`;
+const CommentSub = styled.span``;
+const CommentSubInformatique = styled.span`
+  text-decoration: underline;
+`;
+
+export const Main = ({
   backdropUrl,
   year,
   text1,
   text2,
   text3,
+  text4,
+  comment1,
+  comment2,
+  comment3,
+  author,
+  children,
 }) => (
-  <Main>
-    <ImageMain imageUrl={imageUrl} title={title} sub={sub} />
+  <Container>
+    {children}
     <Backdrop bgImage={backdropUrl}>
-      <Text>{`${year} # ${text1} # ${text2} # ${text3}`}</Text>
+      <Text>
+        {year}
+        {text1}
+        {text2}
+        {text3}
+        {text4}
+      </Text>
     </Backdrop>
     <Icons>
       <LeftIcon>
@@ -77,5 +105,77 @@ export default ({
         <FontAwesomeIcon icon={faBookmark} size="2x" />
       </RightIcon>
     </Icons>
-  </Main>
+    <CommentList>
+      <Comment>
+        <CommentTitle>{author}</CommentTitle>
+        <CommentSub>{comment1}</CommentSub>
+      </Comment>
+      <Comment>
+        <CommentTitle>{author}</CommentTitle>
+        <CommentSub>{comment2}</CommentSub>
+      </Comment>
+      <Comment>
+        <CommentTitle>{author}</CommentTitle>
+        <CommentSub>{comment3}</CommentSub>
+      </Comment>
+    </CommentList>
+  </Container>
+);
+
+export const MainInformatique = ({
+  backdropUrl,
+  year,
+  text1,
+  text2,
+  text3,
+  text4,
+  comment1,
+  comment2,
+  link1,
+  link2,
+  author,
+  children,
+}) => (
+  <Container>
+    {children}
+    <Backdrop bgImage={backdropUrl}>
+      <Text>
+        {year}
+        {text1}
+        {text2}
+        {text3}
+        {text4}
+      </Text>
+    </Backdrop>
+    <Icons>
+      <LeftIcon>
+        <FontAwesomeIcon icon={faHeart} size="2x" />
+        <FontAwesomeIcon icon={faComment} size="2x" />
+        <FontAwesomeIcon icon={faPaperPlane} size="2x" />
+      </LeftIcon>
+      <RightIcon>
+        <FontAwesomeIcon icon={faBookmark} size="2x" />
+      </RightIcon>
+    </Icons>
+    <CommentList>
+      <Comment>
+        <CommentTitle>{author}</CommentTitle>
+        <CommentSubInformatique>
+          <a href={link1} target="_blank">
+            {comment1}
+            <FontAwesomeIcon icon={faLink} />
+          </a>
+        </CommentSubInformatique>
+      </Comment>
+      <Comment>
+        <CommentTitle>{author}</CommentTitle>
+        <CommentSubInformatique>
+          <a href={link2} target="_blank">
+            {comment2}
+            <FontAwesomeIcon icon={faLink} />
+          </a>
+        </CommentSubInformatique>
+      </Comment>
+    </CommentList>
+  </Container>
 );

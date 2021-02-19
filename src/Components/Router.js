@@ -7,6 +7,7 @@ import {
 import Resume from "Routes/Resume";
 import Informatique from "Routes/Informatique";
 import Formation from "Routes/Formation";
+import Profession from "Routes/Profession";
 import Header from "Components/Header";
 import Present from "Components/Present";
 import styled from "styled-components";
@@ -25,6 +26,7 @@ export default () => (
       <Present />
       <Switch>
         <Route path="/" exact component={Resume} />
+        <Route path="/profession" exact component={Profession} />
         <Route path="/formation" exact component={Formation} />
         <Route path="/informatique" exact component={Informatique} />
         <Redirect from="*" to="/" />
