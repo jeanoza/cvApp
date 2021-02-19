@@ -5,9 +5,8 @@ import {
   faUserTie,
   faHome,
   faGraduationCap,
-  faAtom,
 } from "@fortawesome/free-solid-svg-icons";
-import { faJava, faJsSquare } from "@fortawesome/free-brands-svg-icons";
+import { faJsSquare } from "@fortawesome/free-brands-svg-icons";
 
 const Header = styled.div`
   z-index: 10;
@@ -18,14 +17,18 @@ const Header = styled.div`
   align-items: center;
   top: 0px;
   left: 0px;
-  width: 100vw;
+  width: 98vw;
   font-weight: 600;
   height: 50px;
   border-bottom: 1px solid rgb(20, 20, 20, 0.1);
   padding: 0px 18vw;
+
+  min-width: 320px;
   @media (max-width: 1024px) {
     right: 0;
     padding: 0 1vw;
+    width: 100%;
+    min-width: 900px;
   }
 `;
 

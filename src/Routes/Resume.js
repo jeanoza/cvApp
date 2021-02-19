@@ -8,12 +8,12 @@ const Container = styled.div`
   top: 50px;
   left: 18vw;
   width: 100%;
-  min-width: 600px;
   padding-bottom: 30px;
   @media (max-width: 1024px) {
     top: 300px;
+    width: 90vw;
+    min-width: 900px;
     left: 0;
-    width: 98vw;
   }
 `;
 const Section = styled.div`
