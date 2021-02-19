@@ -17,7 +17,7 @@ const Header = styled.div`
   align-items: center;
   top: 0px;
   left: 0px;
-  width: 98vw;
+  width: 100vw;
   font-weight: 600;
   height: 50px;
   border-bottom: 1px solid rgb(20, 20, 20, 0.1);

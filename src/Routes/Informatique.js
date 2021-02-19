@@ -63,8 +63,8 @@ const Informatique = () => {
       <MainInformatique
         backdropUrl="https://i.morioh.com/dd054f30db.png"
         text1=" Java # Spring # Boot #"
-        text2=" Gradle # JPA # MVC #"
-        text3=" RestAPI # MySQL #"
+        text2=" Gradle # JPA # MVC # TOD #"
+        text3=" RestAPI # MySQL # Response # Request #"
         comment1="This app is realized only backend part"
         comment2="Source Code "
         link2="https://github.com/jeanoza/admin_page"
