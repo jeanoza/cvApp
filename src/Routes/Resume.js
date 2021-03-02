@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ImageMain } from "Components/Image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { professionApi, formationApi, langueApi, informatiqueApi } from "api";
 
 const Container = styled.div`
   position: absolute;
@@ -49,64 +50,77 @@ const Item = styled.li`
 `;
 
 const Resume = () => {
+  const [formations, setFormations] = useState([]);
+  const [professions, setProfessions] = useState([]);
+  const [langues, setLangues] = useState([]);
+  const [informatiques, setInformatiques] = useState([]);
+
   useEffect(() => {
+    const getResumeInfos = async () => {
+      try {
+        const { data: formation } = await formationApi();
+        const { data: profession } = await professionApi();
+        const { data: langue } = await langueApi();
+        const { data: informatique } = await informatiqueApi();
+        setFormations(formation);
+        setProfessions(profession);
+        setLangues(langue);
+        setInformatiques(informatique);
+      } catch (e) {
+        console.error(e.message);
+      } finally {
+      }
+    };
+    getResumeInfos();
+
     document.title = "Home | CV App";
   }, []);
   return (
     <Container>
       <Section>
         <SectionTitle>EXPERIENCES PROFESSIONNELLES</SectionTitle>
-        <ImageMain
-          imageUrl="https://img.khan.co.kr/news/2020/04/06/l_2020040601000690900052931.jpg"
-          title="Armée de Terre de la Corée du Sud"
-          sub="Chef du département de service de sécurité informatique (2014 ~ 2016)"
-        />
-        <ImageMain
-          imageUrl="https://logodownload.org/wp-content/uploads/2017/10/starbucks-logo-4.png"
-          title="Starbucks France"
-          sub="Barista (sept. 2019 ~)"
-        />
-        <ImageMain
-          imageUrl="https://img2.freepng.fr/20180925/hjq/kisspng-burger-king-gmbh-munchen-logo-hamburger-brand-burger-king-logo-png-transparent-svg-vector-fr-5baad09e5c5625.4805092915379211823782.jpg"
-          title="Burger King France"
-          sub="Equipier Polyvalent (mars ~ sept. 2019)"
-        />
+        {professions &&
+          professions.length > 0 &&
+          professions.map((profession) => (
+            <ImageMain
+              key={profession.id}
+              imageUrl={profession.image_url}
+              title={profession.title}
+              sub={`${profession.subtitle} (${profession.year_start} ~ ${profession.year_end})`}
+            />
+          ))}
       </Section>
       <Section>
         <SectionTitle>FORMATIONS</SectionTitle>
-        <ImageMain
-          imageUrl="https://upload.wikimedia.org/wikipedia/fr/thumb/3/38/Logo_ehess.svg/1200px-Logo_ehess.svg.png"
-          title="Ecole des Hautes Etudes en Sciences Sociales"
-          sub="Master Etudes sur le genre parcours sociologie (2019 ~)"
-        />
-        <ImageMain
-          imageUrl="https://boutique.univ-paris1.fr/img/cms/logo-mob.png"
-          title="Université Paris 1 Panthéon-Sorbonne"
-          sub="Licence 3 Philosophie parcours sociologie (2017 ~ 2018)"
-        />
-        <ImageMain
-          imageUrl="https://www.jbnu.ac.kr/kor/images/227_10.jpg"
-          title="Université nationale Chonbuk en Corée du Sud"
-          sub="Double Licence Philosophie et Français (2010 ~ 2014)"
-        />
+        {formations &&
+          formations.length > 0 &&
+          formations.map((formation) => (
+            <ImageMain
+              key={formation.id}
+              imageUrl={formation.image_url}
+              title={`${formation.title} - ${formation.subtitle}`}
+              sub={`${formation.text1} ${formation.text2} (${formation.year_start} ~ ${formation.year_end})`}
+            />
+          ))}
       </Section>
       <Section>
         <SectionTitle>Langues</SectionTitle>
         <List>
-          <Item bgUrl="https://img2.freepng.fr/20180702/ttz/kisspng-flag-of-france-5b3ac8f90ead60.0732531715305791930601.jpg" />
-          <Item bgUrl="https://cdn.countryflags.com/thumbs/south-korea/flag-3d-round-250.png" />
-          <Item bgUrl="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-3d-round-250.png" />
-          <Item bgUrl="https://rlv.zcache.ca/autocollants_ronds_de_drapeau_du_japon-r185eb9c9d8b64f0882709d7f5d031bcc_0ugmp_8byvr_540.jpg" />
+          {langues &&
+            langues.length > 0 &&
+            langues.map((langue) => (
+              <Item key={langue.id} bgUrl={langue.url} />
+            ))}
         </List>
       </Section>
       <Section>
         <SectionTitle>Informatiques</SectionTitle>
         <List>
-          <Item bgUrl="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
-          <Item bgUrl="https://logoeps.com/wp-content/uploads/2013/03/java-eps-vector-logo.png" />
-          <Item bgUrl="https://i.pinimg.com/originals/8f/ad/12/8fad125b8f6082bdb7deb0aa593dfb49.jpg" />
-          <Item bgUrl="https://cms-informatic.com/wp-content/uploads/2020/01/logo-langage-C.png" />
-          <Item bgUrl="https://pbs.twimg.com/profile_images/1255113654049128448/J5Yt92WW_400x400.png" />
+          {informatiques &&
+            informatiques.length > 0 &&
+            informatiques.map((informatique) => (
+              <Item key={informatique.id} bgUrl={informatique.url} />
+            ))}
         </List>
       </Section>
     </Container>
