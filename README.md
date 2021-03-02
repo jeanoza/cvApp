@@ -29,3 +29,9 @@ Project for learning React & React Router.
 - [x] Github Repository
 - [x] npm i gh-pages
 - [x] modify package.json:homepage, deploy, predeploy...
+
+
+## Branch "withMySQL" = React x NodeJS x MySql
+- [x] NodeJS x Express : 8080 port (Service Logic)
+- [x] MySQL : 3306 port (Database)
+- [x] React : 3000 port (Web page)
