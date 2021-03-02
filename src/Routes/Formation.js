@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Main } from "Components/Main";
 import { ImageMain } from "Components/Image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { formationApi } from "api";
 
 const Container = styled.div`
   position: absolute;
@@ -18,50 +19,46 @@ const Container = styled.div`
     left: 0;
   }
 `;
+const toHashTag = (str) => str.replaceAll(" ", "\n#\n") + "\n#\n";
+
 const Formation = () => {
+  const [formations, setFormations] = useState([]);
+
   useEffect(() => {
+    const getFormationApi = async () => {
+      try {
+        const { data: result } = await formationApi();
+        setFormations(result);
+      } catch (e) {
+        console.error(e.message);
+      } finally {
+        console.log(formations);
+        console.log("formation updated");
+      }
+    };
+    getFormationApi();
     document.title = "Formation | CV App";
   }, []);
 
   return (
     <Container>
-      <Main
-        backdropUrl="https://www.ehess.fr/sites/default/files/media/image/entre-2.jpg"
-        year="Depuis # 2019 #"
-        text1=" Master # Etudes # sur # le # genre #"
-        text2=" parcours #"
-        text3=" sociologie #"
-      >
-        <ImageMain
-          imageUrl="https://upload.wikimedia.org/wikipedia/fr/thumb/3/38/Logo_ehess.svg/1200px-Logo_ehess.svg.png"
-          title="Ecole des Hautes Etudes en Sciences Sociales"
-          sub="Paris"
-        />
-      </Main>
-      <Main
-        backdropUrl="http://www.sorbonne-universite.fr/sites/default/files/media/2019-12/0-universite.jpg"
-        year="2017 # 2018 #"
-        text1=" Licence3 # Philosophie # "
-        text2=" parcours # sociologie # "
-      >
-        <ImageMain
-          imageUrl="https://boutique.univ-paris1.fr/img/cms/logo-mob.png"
-          title="Université Paris 1 Panthéon-Sorbonne"
-          sub="Paris"
-        />
-      </Main>
-      <Main
-        backdropUrl="https://cdn.news.unn.net/news/photo/202007/232338_117595_5442.jpg"
-        year="# 2010 # 2014 #"
-        text1=" Double # Licence #"
-        text2=" Philosophie # Français"
-      >
-        <ImageMain
-          imageUrl="https://www.jbnu.ac.kr/kor/images/227_10.jpg"
-          title="Université nationale Chonbuk en Corée du Sud"
-          sub="Corée du Sud"
-        />
-      </Main>
+      {formations &&
+        formations.length > 0 &&
+        formations.map((formation) => (
+          <Main
+            key={formation.id}
+            backdropUrl={formation.backdrop_url}
+            year={toHashTag(`${formation.year_start} ${formation.year_end}`)}
+            text1={toHashTag(formation.text1)}
+            text2={toHashTag(formation.text2)}
+          >
+            <ImageMain
+              imageUrl={formation.image_url}
+              title={formation.title}
+              sub={formation.subtitle}
+            />
+          </Main>
+        ))}
     </Container>
   );
 };
