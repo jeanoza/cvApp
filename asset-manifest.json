@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.js": "/cvApp/static/js/main.157ba3d8.chunk.js",
-    "main.js.map": "/cvApp/static/js/main.157ba3d8.chunk.js.map",
-    "runtime-main.js": "/cvApp/static/js/runtime-main.5c6313be.js",
-    "runtime-main.js.map": "/cvApp/static/js/runtime-main.5c6313be.js.map",
-    "static/js/2.8f11f7d3.chunk.js": "/cvApp/static/js/2.8f11f7d3.chunk.js",
-    "static/js/2.8f11f7d3.chunk.js.map": "/cvApp/static/js/2.8f11f7d3.chunk.js.map",
-    "static/js/3.6c3710be.chunk.js": "/cvApp/static/js/3.6c3710be.chunk.js",
-    "static/js/3.6c3710be.chunk.js.map": "/cvApp/static/js/3.6c3710be.chunk.js.map",
+    "main.js": "/cvApp/static/js/main.c2fad737.chunk.js",
+    "main.js.map": "/cvApp/static/js/main.c2fad737.chunk.js.map",
+    "runtime-main.js": "/cvApp/static/js/runtime-main.f6fc7fad.js",
+    "runtime-main.js.map": "/cvApp/static/js/runtime-main.f6fc7fad.js.map",
+    "static/js/2.c4d83f70.chunk.js": "/cvApp/static/js/2.c4d83f70.chunk.js",
+    "static/js/2.c4d83f70.chunk.js.map": "/cvApp/static/js/2.c4d83f70.chunk.js.map",
     "index.html": "/cvApp/index.html",
-    "static/js/2.8f11f7d3.chunk.js.LICENSE.txt": "/cvApp/static/js/2.8f11f7d3.chunk.js.LICENSE.txt"
+    "static/js/2.c4d83f70.chunk.js.LICENSE.txt": "/cvApp/static/js/2.c4d83f70.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5c6313be.js",
-    "static/js/2.8f11f7d3.chunk.js",
-    "static/js/main.157ba3d8.chunk.js"
+    "static/js/runtime-main.f6fc7fad.js",
+    "static/js/2.c4d83f70.chunk.js",
+    "static/js/main.c2fad737.chunk.js"
   ]
 }
