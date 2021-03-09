@@ -61,7 +61,7 @@ export default () => (
         sub="Javascript, ReactJS"
       />
       <ImageSmall
-        imageUrl="https://www.contentside.com/wp-content/uploads/2015/01/spring-boot-logo.png"
+        imageUrl="https://cdn.iconscout.com/icon/free/png-512/node-js-1174925.png"
         title="Full-Stack"
         sub="NodeJS, Java Spring Boot, MySQL"
       />

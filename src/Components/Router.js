@@ -5,9 +5,10 @@ import {
   Redirect,
 } from "react-router-dom";
 import Resume from "Routes/Resume";
-import Informatique from "Routes/Informatique";
+import Project from "Routes/Project";
 import Formation from "Routes/Formation";
 import Profession from "Routes/Profession";
+import Admin from "Routes/Admin";
 import Header from "Components/Header";
 import Present from "Components/Present";
 import styled from "styled-components";
@@ -25,10 +26,21 @@ export default () => (
       <Header />
       <Present />
       <Switch>
-        <Route path="/" exact component={Resume} />
-        <Route path="/profession" exact component={Profession} />
-        <Route path="/formation" exact component={Formation} />
-        <Route path="/informatique" exact component={Informatique} />
+        <Route exact path="/">
+          <Resume />
+        </Route>
+        <Route path="/profession" exact>
+          <Profession />
+        </Route>
+        <Route path="/formation" exact>
+          <Formation />
+        </Route>
+        <Route path="/project" exact>
+          <Project />
+        </Route>
+        <Route path="/admin" exact>
+          <Admin />
+        </Route>
         <Redirect from="*" to="/" />
       </Switch>
     </Container>

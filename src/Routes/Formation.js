@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Main } from "Components/Main";
 import { ImageMain } from "Components/Image";
 import { useEffect, useState } from "react";
-import { formationApi } from "api";
+import { getFormationList } from "database";
 
 const Container = styled.div`
   position: absolute;
@@ -22,29 +22,18 @@ const Container = styled.div`
 const toHashTag = (str) => str.replaceAll(" ", "\n#\n") + "\n#\n";
 
 const Formation = () => {
-  const [formations, setFormations] = useState([]);
+  const [formationList, setFormationList] = useState([]);
 
   useEffect(() => {
-    const getFormationApi = async () => {
-      try {
-        const { data: result } = await formationApi();
-        setFormations(result);
-      } catch (e) {
-        console.error(e.message);
-      } finally {
-        console.log(formations);
-        console.log("formation updated");
-      }
-    };
-    getFormationApi();
+    getFormationList(setFormationList);
     document.title = "Formation | CV App";
   }, []);
 
   return (
     <Container>
-      {formations &&
-        formations.length > 0 &&
-        formations.map((formation) => (
+      {formationList &&
+        formationList.length > 0 &&
+        formationList.map((formation) => (
           <Main
             key={formation.id}
             backdropUrl={formation.backdrop_url}
@@ -55,7 +44,7 @@ const Formation = () => {
             <ImageMain
               imageUrl={formation.image_url}
               title={formation.title}
-              sub={formation.subtitle}
+              sub={formation.sub}
             />
           </Main>
         ))}

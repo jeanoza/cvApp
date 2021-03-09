@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Main } from "Components/Main";
 import { ImageMain } from "Components/Image";
 import { useEffect, useState } from "react";
-import { professionApi } from "api";
+import { getProfessionList } from "database";
 
 const Container = styled.div`
   position: absolute;
@@ -22,25 +22,15 @@ const Container = styled.div`
 const toHashTag = (str) => str.replaceAll(" ", "\n#\n") + "\n#\n";
 
 const Profession = () => {
-  const [professions, setProfessions] = useState([]);
+  const [professionList, setProfessionList] = useState([]);
 
   useEffect(() => {
-    const getProfessionApi = async () => {
-      try {
-        const { data: result } = await professionApi();
-        setProfessions(result);
-      } catch (e) {
-        console.error(e.message);
-      } finally {
-        console.log("updated");
-      }
-    };
-    getProfessionApi();
+    getProfessionList(setProfessionList);
     document.title = "Profession | CV App";
   }, []);
   return (
     <Container>
-      {professions.map((profession) => (
+      {professionList.map((profession) => (
         <Main
           key={profession.id}
           backdropUrl={profession.backdrop_url}
@@ -57,7 +47,7 @@ const Profession = () => {
           <ImageMain
             imageUrl={profession.image_url}
             title={profession.title}
-            sub={profession.subtitle}
+            sub={profession.sub}
           />
         </Main>
       ))}

@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { ImageMain } from "Components/Image";
 import { useEffect, useState } from "react";
-import { professionApi, formationApi, langueApi, informatiqueApi } from "api";
+import {
+  getProfessionList,
+  getFormationList,
+  getLangueList,
+  getInformatiqueList,
+} from "database";
 
 const Container = styled.div`
   position: absolute;
@@ -43,82 +48,69 @@ const Item = styled.li`
   background-image: url(${(props) => props.bgUrl});
   background-size: cover;
   background-position: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
   margin-right: 10px;
 `;
 
 const Resume = () => {
-  const [formations, setFormations] = useState([]);
-  const [professions, setProfessions] = useState([]);
-  const [langues, setLangues] = useState([]);
-  const [informatiques, setInformatiques] = useState([]);
+  const [formationList, setFormationList] = useState([]);
+  const [professionList, setProfessionList] = useState([]);
+  const [langueList, setLangueList] = useState([]);
+  const [informatiqueList, setInformatiqueList] = useState([]);
 
   useEffect(() => {
-    const getResumeInfos = async () => {
-      try {
-        const { data: formation } = await formationApi();
-        const { data: profession } = await professionApi();
-        const { data: langue } = await langueApi();
-        const { data: informatique } = await informatiqueApi();
-        setFormations(formation);
-        setProfessions(profession);
-        setLangues(langue);
-        setInformatiques(informatique);
-      } catch (e) {
-        console.error(e.message);
-      } finally {
-      }
-    };
-    getResumeInfos();
-
+    getFormationList(setFormationList);
+    getProfessionList(setProfessionList);
+    getLangueList(setLangueList);
+    getInformatiqueList(setInformatiqueList);
     document.title = "Home | CV App";
   }, []);
   return (
     <Container>
       <Section>
         <SectionTitle>EXPERIENCES PROFESSIONNELLES</SectionTitle>
-        {professions &&
-          professions.length > 0 &&
-          professions.map((profession) => (
+        {professionList &&
+          professionList.length > 0 &&
+          professionList.map((profession) => (
             <ImageMain
               key={profession.id}
               imageUrl={profession.image_url}
               title={profession.title}
-              sub={`${profession.subtitle} (${profession.year_start} ~ ${profession.year_end})`}
+              sub={`${profession.sub} (${profession.year_start} ~ ${profession.year_end})`}
             />
           ))}
       </Section>
       <Section>
         <SectionTitle>FORMATIONS</SectionTitle>
-        {formations &&
-          formations.length > 0 &&
-          formations.map((formation) => (
+        {formationList &&
+          formationList.length > 0 &&
+          formationList.map((formation) => (
             <ImageMain
               key={formation.id}
               imageUrl={formation.image_url}
-              title={`${formation.title} - ${formation.subtitle}`}
+              title={`${formation.title} - ${formation.sub}`}
               sub={`${formation.text1} ${formation.text2} (${formation.year_start} ~ ${formation.year_end})`}
             />
           ))}
       </Section>
       <Section>
-        <SectionTitle>Langues</SectionTitle>
+        <SectionTitle>LANGUES</SectionTitle>
         <List>
-          {langues &&
-            langues.length > 0 &&
-            langues.map((langue) => (
+          {langueList &&
+            langueList.length > 0 &&
+            langueList.map((langue) => (
               <Item key={langue.id} bgUrl={langue.url} />
             ))}
         </List>
       </Section>
       <Section>
-        <SectionTitle>Informatiques</SectionTitle>
+        <SectionTitle>INFORMATIQUE</SectionTitle>
         <List>
-          {informatiques &&
-            informatiques.length > 0 &&
-            informatiques.map((informatique) => (
+          {informatiqueList &&
+            informatiqueList.length > 0 &&
+            informatiqueList.map((informatique) => (
               <Item key={informatique.id} bgUrl={informatique.url} />
             ))}
         </List>

@@ -66,6 +66,8 @@ const Item = styled.li`
   align-items: center;
   height: 50px;
   width: 50px;
+  font-size: 20px;
+  font-weight: 700;
 
   border-bottom: 3px solid
     ${(props) => (props.current ? "#0984e3" : "transparent")};
@@ -84,22 +86,23 @@ export default withRouter(({ location: { pathname } }) => (
     <List>
       <Item current={pathname === "/"}>
         <Link to="/">
-          <FontAwesomeIcon icon={faHome} size="2x" />
+          <FontAwesomeIcon icon={faHome} size="1x" />
         </Link>
       </Item>
       <Item current={pathname === "/profession"}>
         <Link to="/profession">
-          <FontAwesomeIcon icon={faUserTie} size="2x" />
+          <FontAwesomeIcon icon={faUserTie} size="1x" />
         </Link>
       </Item>
       <Item current={pathname === "/formation"}>
         <Link to="/formation">
-          <FontAwesomeIcon icon={faGraduationCap} size="2x" />
+          <FontAwesomeIcon icon={faGraduationCap} size="1x" />
         </Link>
       </Item>
-      <Item current={pathname === "/informatique"}>
-        <Link to="/informatique">
-          <FontAwesomeIcon icon={faJsSquare} size="2x" />
+      <Item current={pathname === "/project"}>
+        <Link to="/project">
+          {/* <FontAwesomeIcon icon={faJsSquare} size="2x" /> */}
+          {"</>"}
         </Link>
       </Item>
     </List>

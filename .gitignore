@@ -25,3 +25,6 @@ yarn-error.log*
 # server db
 /server/lib/db.js
 /server/node_modules
+
+# firebase
+.env
